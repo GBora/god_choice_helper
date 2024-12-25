@@ -1,0 +1,24 @@
+<div>
+    <div *ngIf="this.option">
+        <div class="p-3">
+            Choice # {{option.id}}
+          </div>
+    
+          <div class="bordered p-3 mt-5">
+            <p>Choice Text</p>
+            <textarea name="" id="" class="form-control w-100" [(ngModel)]="option.text"></textarea>
+          </div>
+
+          <div *ngFor="let afterOption of this.option.after; let i = index" class="bordered p-3 mt-5">
+                <app-after-effect [afterEffect]="afterOption" [index]="i" [remove]="this.removeAfter"></app-after-effect>
+          </div>
+    
+          <div class="mt-5 bordered p-3">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-success" (click)="this.addAfterText()">Add after text</button>
+                <button type="button" class="btn btn-primary" (click)="this.addAfterEffect()">Add after effect</button>
+                <button type="button" class="btn btn-danger" (click)="this.removeOption()">Remove option</button>
+            </div>
+          </div>
+    </div>
+</div>
